@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class QuadraticSolver{
+   
+   public static void main(String [] args){
+   Scanner scnr = new Scanner(System.in);
+      
+      double a,b,c;
+      System.out.println("Enter values for a, b, and c: ");
+      a = scnr.nextDouble();
+      b = scnr.nextDouble();
+      c = scnr.nextDouble();
+   
+      double discrim, denom;
+      double x1, x2, re, im = 0.0;
+      
+      discrim = Math.pow(b,2.0) - (4 * a * c);
+      denom = 2*a;
+   
+      System.out.print("For f(x) = " + a + "x^2 + " + b + "x + " + c + ": The zeros are ");
+   
+      if (discrim < 0){   
+         System.out.println("in the complex plane!");
+         x1 = 0.0;
+         x2 = 0.0;
+         discrim = (discrim * -1);
+         re = (-1*b / denom);
+         im = Math.sqrt(discrim) / denom;
+         System.out.println("x1 = " + re + " - " + im + 'j');
+         System.out.println("x2 = " + re + " + " + im + 'j');
+      }   
+      else {
+         System.out.println("on the real line!");
+         x1 = (-1*b + Math.sqrt(discrim)) / denom;
+         x2 = (-1*b - Math.sqrt(discrim)) / denom;
+         System.out.println("x1 = " + x1 + " x2 = " + x2);
+      }
+   
+   }
+}
